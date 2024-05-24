@@ -1,7 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '../globals.css'
 import { TanstackQueryProvider } from '@/providers'
+import { I18nProviderClient } from '@/locales/client'
+
+interface RootLayoutProps {
+    children: React.ReactNode
+    params: { locale: string }
+}
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,15 +17,16 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout ({
-  children
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+  children,
+  params: { locale }
+}: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={inter.className}>
         <TanstackQueryProvider>
-          {children}
+          <I18nProviderClient locale={locale}>
+            {children}
+          </I18nProviderClient>
         </TanstackQueryProvider>
       </body>
     </html>
