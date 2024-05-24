@@ -7,7 +7,7 @@ const I18nMiddleware = createI18nMiddleware({
   urlMappingStrategy: 'rewrite'  
 })
  
-export function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) {    
   return I18nMiddleware(request)
 }
  
