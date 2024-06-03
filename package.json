@@ -1,6 +1,6 @@
 {
   "name": "school-sync",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,8 +8,10 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --passWithNoTests --no-cache --runInBand",
+    "test:watch": "npm test -- --watch",
+    "test:staged": "npm test -- --findRelatedTests ./tests",
+    "test:ci": "npm test -- --coverage"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.4",
@@ -21,6 +23,7 @@
     "clsx": "^2.1.1",
     "eslint": "^8.57.0",
     "git-commit-msg-linter": "^5.0.8",
+    "lint-staged": "^12.3.2",
     "lucide-react": "^0.379.0",
     "negotiator": "^0.6.3",
     "next": "14.2.3",
