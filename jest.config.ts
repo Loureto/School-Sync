@@ -21,7 +21,7 @@ const config: Config = {
   ],
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
-    '<rootDir>/tests/e2e/cypress'
+    '<rootDir>/tests/cypress/e2e'
   ],
   moduleNameMapper: {
     '@/tests/(.*)': '<rootDir>/tests/$1',
